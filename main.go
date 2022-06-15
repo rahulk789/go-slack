@@ -13,8 +13,8 @@ func main() {
  
     godotenv.Load(".env")
  
-    token := os.Getenv("SLACK_AUTH_TOKEN")
-    channelID := os.Getenv("SLACK_CHANNEL_ID")
+    token := os.Getenv("slack_auth_token")
+    channelID := os.Getenv("slack_channel_id")
  
     client := slack.New(token, slack.OptionDebug(true))
     attachment := slack.Attachment{

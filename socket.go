@@ -70,6 +70,7 @@ func HandleEventMessage(event slackevents.EventsAPIEvent, client *slack.Client) 
         innerEvent := event.InnerEvent
  
         switch evnt := innerEvent.Data.(type) {
+        case *slackevents.AppMentionEvent:
             err := HandleAppMentionEventToBot(evnt, client)
             if err != nil {
                 return err

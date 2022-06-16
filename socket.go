@@ -2,11 +2,12 @@ package main
  
 import (
     "context"
+    "errors"
     "fmt"
     "log"
     "os"
-    "time"
- 
+    "strings" 
+
     "github.com/joho/godotenv"
     "github.com/slack-go/slack"
     "github.com/slack-go/slack/slackevents"
@@ -17,8 +18,8 @@ func main() {
  
     godotenv.Load(".env")
  
-    token := os.Getenv("SLACK_AUTH_TOKEN")
-    appToken := os.Getenv("SLACK_APP_TOKEN")
+    token := os.Getenv("slack_auth_token")
+    appToken := os.Getenv("slack_app_token")
  
     client := slack.New(token, slack.OptionDebug(true), slack.OptionAppLevelToken(appToken))
  
